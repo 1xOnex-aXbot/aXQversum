@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UAIXQ - Geo Intelligence</title>
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+            padding: 2rem;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { text-align: center; font-size: 3rem; margin-bottom: 2rem; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .card:hover { transform: translateY(-10px); }
+        .card-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .card-title { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .card-desc { opacity: 0.9; line-height: 1.6; }
+        .status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌍 UAIXQ Geo-Intelligence</h1>
+        
+        <div class="grid">
+            <div class="card" onclick="alert('Feature coming soon!')">
+                <div class="card-icon">🗺️</div>
+                <div class="card-title">Real-Time Maps</div>
+                <div class="card-desc">Leaflet.js maps with live tracking</div>
+            </div>
+            
+            <div class="card" onclick="alert('Feature coming soon!')">
+                <div class="card-icon">🤖</div>
+                <div class="card-title">ML Prediction</div>
+                <div class="card-desc">TensorFlow.js location prediction</div>
+            </div>
+            
+            <div class="card" onclick="alert('Feature coming soon!')">
+                <div class="card-icon">🔥</div>
+                <div class="card-title">Heatmaps</div>
+                <div class="card-desc">Density visualization</div>
+            </div>
+            
+            <div class="card" onclick="alert('Feature coming soon!')">
+                <div class="card-icon">🌦️</div>
+                <div class="card-title">Weather</div>
+                <div class="card-desc">Weather-based targeting</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="status" id="status">✅ System Ready</div>
+    
+    <script>
+        console.log('UAIXQ loaded!');
+        
+        // Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(() => console.log('✓ SW registered'))
+                .catch(err => console.error('SW error:', err));
+        }
+    </script>
+</body>
+</html>
